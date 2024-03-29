@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
 
-import 'package:downloads_path_provider/downloads_path_provider.dart';
+// import 'package:downloads_path_provider/downloads_path_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,7 +17,8 @@ import 'package:sftpmanager/pages/filetype_pages/pdf.dart';
 import 'package:sftpmanager/widgets/appbar_popupmenu.dart';
 import 'package:sftpmanager/widgets/popupmenu.dart';
 
-import 'package:ssh/ssh.dart';
+// import 'package:ssh/ssh.dart';
+import 'package:dartssh2/dartssh2.dart';
 
 class MyConnectionPage extends StatefulWidget {
   Connection connection;
@@ -76,11 +77,16 @@ class _MyConnectionPageState extends State<MyConnectionPage> with SingleTickerPr
     // TODO: implement initState
 
     setState(() {
-      _client = new SSHClient(
-          host: widget.connection.hostIp,
-          port: int.parse(widget.connection.port),
-          username: widget.connection.username,
-          passwordOrKey: widget.connection.password);
+      // _client = new SSHClient(
+      //     host: widget.connection.hostIp,
+      //     port: int.parse(widget.connection.port),
+      //     username: widget.connection.username,
+      //     passwordOrKey: widget.connection.password);
+      // _client = new SSHClient(
+      //   host: widget.connection.hostIp,
+      //   port: int.parse(widget.connection.port),
+      //   username: widget.connection.username,
+      //   passwordOrKey: widget.connection.password);
     });
 
     _makeSTFPRequest();

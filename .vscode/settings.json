@@ -2,5 +2,10 @@
   "editor.rulers": [100
   
   ],
-  "editor.wordWrapColumn": 120
+  "editor.wordWrapColumn": 120,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#570054",
+    "titleBar.activeBackground": "#7A0075",
+    "titleBar.activeForeground": "#FFFBFF"
+  }
 }

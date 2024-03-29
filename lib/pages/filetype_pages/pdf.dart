@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:downloads_path_provider/downloads_path_provider.dart';
+// import 'package:downloads_path_provider/downloads_path_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,7 +11,7 @@ import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 import 'package:sftpmanager/constants/colors.dart';
 import 'package:sftpmanager/constants/functions.dart';
-import 'package:ssh/ssh.dart';
+// import 'package:ssh/ssh.dart';
 
 class MyPDFPage extends StatefulWidget {
   final String serverPath;

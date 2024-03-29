@@ -84,8 +84,9 @@ class _MyHomePageState extends State<MyHomePage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Container(
-          height: 410,
+        child: IntrinsicHeight(
+          child: Container(
+            // height: 500,
           // padding: EdgeInsets.symmetric(horizontal: 10),
           child: Form(
             key: _formKey,
@@ -338,7 +339,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-        ),
+        ),),
       ),
     );
   }

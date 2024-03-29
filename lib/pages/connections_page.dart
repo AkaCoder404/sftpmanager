@@ -9,7 +9,8 @@ import 'package:sftpmanager/constants/colors.dart';
 import 'package:sftpmanager/constants/functions.dart';
 import 'package:sftpmanager/db/connectiondb.dart';
 import 'package:sftpmanager/models/connection.dart';
-import 'package:ssh/ssh.dart';
+import 'package:dartssh2/dartssh2.dart';
+
 
 class MyConnectionsPage extends StatefulWidget {
   MyConnectionsPage({Key? key}) : super(key: key);
@@ -37,11 +38,13 @@ class _MyConnectionsPageState extends State<MyConnectionsPage> {
 
   // connect to server and redirect to dir
   void _connect(Connection connection) async {
-    var client = new SSHClient(
-        host: connection.hostIp,
-        port: int.parse(connection.port),
-        username: connection.username,
-        passwordOrKey: connection.password);
+    // var client = new SSHClient(
+    //     host: connection.hostIp,
+    //     port: int.parse(connection.port),
+    //     username: connection.username,
+    //     passwordOrKey: connection.password);
+    var client;
+    
 
     try {
       String result;
@@ -105,8 +108,8 @@ class _MyConnectionsPageState extends State<MyConnectionsPage> {
                     return Container(
                       color: default_background_color,
                       child: Slidable(
-                        actionPane: SlidableDrawerActionPane(),
-                        actionExtentRatio: 0.25,
+                        // actionPane: SlidableDrawerActionPane(),
+                        // actionExtentRatio: 0.25,
                         child: ListTile(
                           leading: Icon(Icons.connected_tv),
                           title: Text(
@@ -117,25 +120,25 @@ class _MyConnectionsPageState extends State<MyConnectionsPage> {
                             _connect(connectionList[index]);
                           },
                         ),
-                        secondaryActions: <Widget>[
-                          IconSlideAction(
-                              caption: 'Edit',
-                              color: Colors.blue,
-                              icon: Icons.edit,
-                              onTap: () => incompleteFunctionalitySnackbar(context, "edit incomplete")),
-                          IconSlideAction(
-                            caption: 'Delete',
-                            color: Colors.indigo,
-                            icon: Icons.delete,
-                            onTap: () {
-                              ConnectionsDatabaseProvider.db.delete(connectionList[index].id!).then((_) {
-                                _refreshConnectionList();
-                                // BlocProvider.of<ConnectionBloc>(context)
-                                //     .add(DeleteConnectionEvent(index));
-                              });
-                            },
-                          ),
-                        ],
+                        // secondaryActions: <Widget>[
+                        //   IconSlideAction(
+                        //       caption: 'Edit',
+                        //       color: Colors.blue,
+                        //       icon: Icons.edit,
+                        //       onTap: () => incompleteFunctionalitySnackbar(context, "edit incomplete")),
+                        //   IconSlideAction(
+                        //     caption: 'Delete',
+                        //     color: Colors.indigo,
+                        //     icon: Icons.delete,
+                        //     onTap: () {
+                        //       ConnectionsDatabaseProvider.db.delete(connectionList[index].id!).then((_) {
+                        //         _refreshConnectionList();
+                        //         // BlocProvider.of<ConnectionBloc>(context)
+                        //         //     .add(DeleteConnectionEvent(index));
+                        //       });
+                        //     },
+                        //   ),
+                        // ],
                       ),
                     );
                   },
